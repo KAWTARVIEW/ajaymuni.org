@@ -1,128 +1,807 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HUNANIMA - Machines Agricoles Simples</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fefefe;
-      color: #333;
-    }
-    header {
-      background-color: #2e7d32; /* Vert foncé */
-      color: #fdd835; /* Jaune vif */
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.2em;
-    }
-    nav {
-      background-color: #fdd835;
-      padding: 10px;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      color: #2e7d32;
-    }
-    .hero {
-      background: url('https://i.pinimg.com/550x/a9/df/51/a9df5172829f8c05f5b92f97553d41ae.jpg') no-repeat center center/cover;
-      height: 350px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-shadow: 2px 2px 4px #000;
-      font-size: 2em;
-    }
-    section {
-      padding: 50px 20px;
-      text-align: center;
-    }
-    section h2 {
-      color: #2e7d32;
-      margin-bottom: 20px;
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .gallery img {
-      width: 280px;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    footer {
-      background-color: #2e7d32;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-    }
-    footer p {
-      margin: 5px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay Muni, LLC | Office Administrative & Corporate Support Services</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.344.0/dist/umd/lucide.min.js"></script>
+    <style>
+        /* Executive Slate Blue, Polished Gold & Clean White Palette */
+        :root {
+            --bg-light: #f4f6f9;
+            --bg-card: #ffffff;
+            --slate-primary: #1e3a5f;
+            --slate-dark: #0f1c2e;
+            --gold-accent: #d97706;
+            --gold-soft: #fef3c7;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Top Announcement Strip */
+        .top-notice {
+            background: var(--slate-dark);
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.65rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-notice div {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Header Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(244, 246, 249, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: var(--slate-primary);
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+        }
+
+        .brand i {
+            color: var(--gold-accent);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--slate-primary);
+        }
+
+        .btn-gold {
+            background: var(--gold-accent);
+            color: #ffffff;
+            padding: 0.75rem 1.6rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.25);
+        }
+
+        .btn-gold:hover {
+            background: #b45309;
+            transform: translateY(-2px);
+        }
+
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        #about {
+            padding: 5rem 0 3rem 0;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gold-soft);
+            color: #b45309;
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.3rem;
+            line-height: 1.15;
+            color: var(--slate-dark);
+            font-weight: 900;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.025em;
+        }
+
+        .hero-text h1 span {
+            color: var(--slate-primary);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-card h4 {
+            font-size: 1.25rem;
+            color: var(--slate-primary);
+            font-weight: 800;
+        }
+
+        .stat-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .hero-image-container {
+            position: relative;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(30, 58, 95, 0.15);
+            border: 2px solid #ffffff;
+        }
+
+        .floating-card {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 1.25rem 1.5rem;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .floating-card i {
+            color: var(--gold-accent);
+            background: var(--gold-soft);
+            padding: 0.75rem;
+            border-radius: 12px;
+        }
+
+        /* Interactive Administrative Services Deck Section */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 6rem auto 3rem auto;
+        }
+
+        .section-header span {
+            color: var(--gold-accent);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.35rem;
+            color: var(--slate-dark);
+            font-weight: 900;
+        }
+
+        .deck-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 3.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            margin-bottom: 6rem;
+        }
+
+        .deck-tabs {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .deck-tab-btn {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            padding: 0.85rem 1.75rem;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .deck-tab-btn.active, .deck-tab-btn:hover {
+            background: var(--slate-primary);
+            color: #ffffff;
+            border-color: var(--slate-primary);
+        }
+
+        .deck-panel {
+            display: none;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .deck-panel.active {
+            display: grid;
+        }
+
+        .panel-text h3 {
+            font-size: 2rem;
+            color: var(--slate-dark);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .panel-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .panel-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .panel-bullets li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            color: var(--slate-dark);
+        }
+
+        .panel-bullets li i {
+            color: var(--gold-accent);
+        }
+
+        .panel-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 18px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--slate-primary);
+            box-shadow: 0 16px 32px rgba(30, 58, 95, 0.12);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .service-card-body {
+            padding: 2rem;
+        }
+
+        .service-card-body h3 {
+            font-size: 1.25rem;
+            color: var(--slate-dark);
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+        }
+
+        .service-card-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            margin-bottom: 6rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2rem;
+            color: var(--slate-dark);
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 1.25rem;
+            margin-top: 2rem;
+            align-items: flex-start;
+        }
+
+        .info-row i {
+            color: var(--slate-primary);
+            background: var(--gold-soft);
+            padding: 1rem;
+            border-radius: 14px;
+        }
+
+        .info-row label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .info-row strong {
+            font-size: 1rem;
+            color: var(--slate-dark);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-form input, .contact-form textarea, .contact-form select {
+            width: 100%;
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-dark);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+            outline: none;
+            border-color: var(--slate-primary);
+            background: #ffffff;
+        }
+
+        .submit-btn {
+            background: var(--slate-primary);
+            color: #ffffff;
+            border: none;
+            padding: 1.1rem;
+            border-radius: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--gold-accent);
+        }
+
+        /* Modal Privacy Policy */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 28, 46, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-body {
+            background: #ffffff;
+            border-radius: 20px;
+            max-width: 750px;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 3rem;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .modal-body h3 {
+            color: var(--slate-dark);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body h4 {
+            color: var(--slate-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        footer {
+            background: var(--slate-dark);
+            color: #94a3b8;
+            padding: 3rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .footer-links {
+            margin-top: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--gold-accent);
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        @media (max-width: 1024px) {
+            #about, .deck-panel, .contact-box {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header>
-    <h1>HUNANIMA</h1>
-    <p>Machines Agricoles Simples et Fiables</p>
-  </header>
-
-  <nav>
-    <a href="#about">À propos</a>
-    <a href="#gallery">Galerie</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <div class="hero">
-    <p>Votre partenaire pour des machines agricoles durables</p>
-  </div>
-
-  <section id="about">
-    <h2>À propos de nous</h2>
-    <p>
-      Chez <strong>HUNANIMA</strong>, nous nous spécialisons dans la fabrication et la distribution de 
-      <strong>machines agricoles simples</strong> pour faciliter le travail des agriculteurs. 
-      Nos solutions combinent <em>durabilité, efficacité et innovation</em> afin de répondre aux besoins de toutes les exploitations.
-    </p>
-  </section>
-
-  <section id="gallery">
-    <h2>Nos Machines</h2>
-    <div class="gallery">
-      <img src="http://ogden_images.s3.amazonaws.com/www.motherearthnews.com/images/2014/11/22234423/Boaz-Mini-Combine-jpg.jpg" alt="Mini moissonneuse">
-      <img src="https://krs-agro.ru/products/zagotovka_kormov/elho/19/7.jpg" alt="Machine agricole">
-      <img src="https://img.mod-network.net/files/images/6218ac69d37fb/SimpleFarmSilov1000_6222.jpg" alt="Équipement agricole simple">
+    <div class="top-notice">
+        <div><i data-lucide="briefcase" size="15"></i> AJAY MUNI, LLC — Office Administrative & Support Services</div>
+        <div>Atlanta, GA Headquarters</div>
     </div>
-  </section>
 
-  <section id="contact">
-    <h2>Contactez-nous</h2>
-    <p><strong>Email :</strong> admin@tyusex.shop</p>
-    <p><strong>Téléphone :</strong> +33 7 38 50 26 36</p>
-    <p><strong>Adresse :</strong> Avenue Baratier, Montmorency, 95160, France</p>
-  </section>
+    <header>
+        <div class="brand">
+            <i data-lucide="layers"></i> Ajay Muni LLC
+        </div>
+        <nav>
+            <a href="#about">Overview</a>
+            <a href="#services-deck">Admin Services Deck</a>
+            <a href="#services">Corporate Support</a>
+            <a href="#contact" class="btn-gold">Consult Team</a>
+        </nav>
+    </header>
 
-  <footer>
-    <p>&copy; 2025 HUNANIMA - Tous droits réservés.</p>
-  </footer>
+    <div class="wrapper">
+        <!-- Hero Section -->
+        <section id="about">
+            <div class="hero-text">
+                <span class="hero-badge">Professional Office & Admin Services</span>
+                <h1>Streamlining Corporate Operations & <span>Administrative Excellence</span></h1>
+                <p>Ajay Muni, LLC delivers premier office administrative services, executive support, and operational workflow solutions in Atlanta, Georgia.</p>
 
+                <a href="#contact" class="btn-gold" style="padding: 1rem 2rem; display: inline-block;">Request Administrative Consultation</a>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h4>Atlanta, GA</h4>
+                        <p>3210 Oakdale Rd</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>NAICS 5611</h4>
+                        <p>Office Admin Services</p>
+                    </div>
+                    <div class="stat-card">
+                        <h4>NAICS 561</h4>
+                        <p>Support Services</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80" alt="Modern corporate executive office interior workspace">
+                <div class="floating-card">
+                    <i data-lucide="shield-check" size="28"></i>
+                    <div>
+                        <strong style="color: var(--slate-dark); display: block;">Operational Efficiency</strong>
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">Advanced Administrative Support</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Administrative Services Deck Section -->
+        <section id="services-deck">
+            <div class="section-header">
+                <span>Core Capabilities</span>
+                <h2>Administrative & Support Services Deck</h2>
+            </div>
+
+            <div class="deck-container">
+                <div class="deck-tabs">
+                    <button class="deck-tab-btn active" onclick="switchDeck(0)">1. Office Administration</button>
+                    <button class="deck-tab-btn" onclick="switchDeck(1)">2. Executive Support</button>
+                    <button class="deck-tab-btn" onclick="switchDeck(2)">3. Workflow & Operations</button>
+                </div>
+
+                <!-- Panel 1 -->
+                <div class="deck-panel active">
+                    <div class="panel-text">
+                        <h3>Comprehensive Office Administration</h3>
+                        <p>Managing day-to-day office functions, records coordination, and structured organizational systems to maximize enterprise productivity.</p>
+                        <ul class="panel-bullets">
+                            <li><i data-lucide="check-circle-2"></i> Day-to-Day Operations Management</li>
+                            <li><i data-lucide="check-circle-2"></i> Records & Information Coordination</li>
+                            <li><i data-lucide="check-circle-2"></i> Facilities & Office Support Systems</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Professional administrator reviewing corporate records" class="panel-img">
+                </div>
+
+                <!-- Panel 2 -->
+                <div class="deck-panel">
+                    <div class="panel-text">
+                        <h3>Executive Secretarial & Support</h3>
+                        <p>Providing high-level executive assistance, scheduling coordination, and corporate correspondence management for business leaders.</p>
+                        <ul class="panel-bullets">
+                            <li><i data-lucide="check-circle-2"></i> Executive Schedule Management</li>
+                            <li><i data-lucide="check-circle-2"></i> Corporate Communications Handling</li>
+                            <li><i data-lucide="check-circle-2"></i> High-Level Meeting Coordination</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80" alt="Executive meeting and planning session" class="panel-img">
+                </div>
+
+                <!-- Panel 3 -->
+                <div class="deck-panel">
+                    <div class="panel-text">
+                        <h3>Workflow & Business Support</h3>
+                        <p>Optimizing business processes, streamlining administrative workflows, and providing reliable support infrastructure for growing companies.</p>
+                        <ul class="panel-bullets">
+                            <li><i data-lucide="check-circle-2"></i> Administrative Process Optimization</li>
+                            <li><i data-lucide="check-circle-2"></i> Back-Office Support Coordination</li>
+                            <li><i data-lucide="check-circle-2"></i> Enterprise Efficiency Consulting</li>
+                        </ul>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Team analyzing workflow improvement charts" class="panel-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Grid -->
+        <section id="services">
+            <div class="section-header">
+                <span>Tailored Solutions</span>
+                <h2>Corporate Administrative Capabilities</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Professional consultant reviewing reports">
+                    <div class="service-card-body">
+                        <h3>Business Process Advisory</h3>
+                        <p>Evaluating existing office structures and implementing streamlined administrative frameworks for optimal performance.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=80" alt="Corporate team collaborating in modern office">
+                    <div class="service-card-body">
+                        <h3>Operational Support</h3>
+                        <p>Reliable back-office coordination and administrative execution designed to scale seamlessly with your enterprise.</p>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="Confident executive leading corporate consultation">
+                    <div class="service-card-body">
+                        <h3>Executive Advisory</h3>
+                        <p>Targeted administrative consulting tailored to enhance leadership efficiency and organizational productivity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="contact-box">
+                <div class="contact-info">
+                    <h2>Connect With Our Team</h2>
+                    <p>Contact Ajay Muni, LLC today to discuss your office administrative and corporate support needs in Atlanta, GA.</p>
+
+                    <div class="info-row">
+                        <i data-lucide="mail"></i>
+                        <div>
+                            <label>Direct Support</label>
+                            <strong>contact@ajaymuni.org</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <i data-lucide="phone"></i>
+                        <div>
+                            <label>Telephone Line</label>
+                            <strong>+1 775 458 6291</strong>
+                        </div>
+                    </div>
+
+                    <div class="info-row">
+                        <i data-lucide="map-pin"></i>
+                        <div>
+                            <label>Atlanta Office</label>
+                            <strong>3210 Oakdale Rd Atlanta, GA, 30354-1038 United States</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="event.preventDefault();">
+                    <div class="form-row">
+                        <input type="text" placeholder="Full Name / Company" required>
+                        <input type="text" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-row">
+                        <input type="email" placeholder="Email Address" required>
+                        <select required>
+                            <option value="" disabled selected>Select Service Inquiry</option>
+                            <option>Office Administrative Services</option>
+                            <option>Executive Support</option>
+                            <option>Operational Workflow Support</option>
+                        </select>
+                    </div>
+                    <textarea rows="5" placeholder="Specify your administrative support or corporate service requirements..." required></textarea>
+                    <button type="submit" class="submit-btn">Send Consultation Request</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal-overlay">
+        <div class="modal-body">
+            <button class="close-btn" onclick="togglePrivacyModal()"><i data-lucide="x" size="24"></i></button>
+            <h3>Privacy Policy</h3>
+
+            <h4>1. Information Collection</h4>
+            <p>AJAY MUNI, LLC collects personal and corporate contact information submitted via form inquiries strictly to handle administrative support and business consultation requests.</p>
+
+            <h4>2. Data Security & Confidentiality</h4>
+            <p>We maintain rigorous administrative safeguards to protect client and corporate data. Details are kept completely confidential and are never rented, sold, or shared with third parties.</p>
+
+            <h4>3. Compliance Contact</h4>
+            <p>For questions regarding our privacy practices, please contact contact@ajaymuni.org.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrapper">
+            <p>&copy;  AJAY MUNI, LLC. All rights reserved. Atlanta, GA.</p>
+            <div class="footer-links">
+                <a onclick="togglePrivacyModal()">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        function switchDeck(index) {
+            const buttons = document.querySelectorAll('.deck-tab-btn');
+            const panels = document.querySelectorAll('.deck-panel');
+
+            buttons.forEach((btn, i) => {
+                btn.classList.remove('active');
+                if (i === index) btn.classList.add('active');
+            });
+
+            panels.forEach((panel, i) => {
+                panel.classList.remove('active');
+                if (i === index) panel.classList.add('active');
+            });
+        }
+
+        function togglePrivacyModal() {
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
